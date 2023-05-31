@@ -1,9 +1,75 @@
-# Андријана Стајковска, бр. на индекс 124014
+# Втора лабораториска вежба по Софтверско инженерство
+
+
+## Андријана Стајковска, бр. на индекс 124014
 
 
 ### Control Flow Graph
 ![cfg](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/e5faab41-4150-49e2-83d1-25919540e25c)
 
+
+### Цикломатска комплексност
+Цикломатската комплексност на овој код изнесува 11 и истата ја добив со примена на формулата P+1. Односно P е бројот на предикатни јазли и иснесува 10. Па според тоа P+1 = 10+1 = 11.
+
+
+### Тест случаи според Every Branch критериумот
+![2](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/106d2022-0f16-4521-9257-0c7a6792354f)
+
+
+
+За попрегледен приказ на тест случаите според Every Branch критериумот користиме матрица во која со ѕвезда се означени сите гранки кои се изминати за соодветнот тест, дедека пак со црвена боја се осначени гранките кои не се изминати за соодветниот тест.
+
+- Со првиот тест се изминуваат поголемиот број на гранки. Овие гранки го исполнуваат условот да вредноста на username е null, password-от да е помал од 8 карактери и email-от да има точка и @.
+   ```
+   List<User> users = new ArrayList<>();
+   String password1 = "12345";
+   String email1 = "john.doe@hotmail.com";
+   User user1 = new User(null, password1, email1);
+   users.add(user1);
+   assertEquals(false, SILab2.function(user1, users));
+   ```
+
+- Со вториот тест се изминуваат само гранките 1-2 и 2-end. Во овој тест случај функцијата фрла исклучок во јазолот 2 и поради тоа таа тука завршува, што значи дека е потребен нов тест случај за да се изминат останатите гранки.
+   ```
+   String username2 = "Alice";
+   String password2 = "pass123@";
+   String email2 = null;
+   User user2 = new User(username2, password2, email2);
+   users.add(user2);
+   RuntimeException ex;
+   ex = assertThrows(RuntimeException.class, () -> SILab2.function(user2, users));
+   assertTrue(ex.getMessage().contains("Mandatory information missing!"));
+   ```
+
+- Со третиот случај се изминуваат гранките 3-5, 6-16 и 22-28, со тоа што по изминување на гранката 22-28 функцијата завршува поради return statement-от кој се наоѓа во јазолот 28. Гранките 19-20 и 26-27 остануваат не изминати. Овој тест го исполнува барањето да pasword-от е поголем од 8 карактери, а email да нема точка и @.
+   ```
+   String username3 = "Jane";
+   String password3 = "jane123AC!$";
+   String email3 = "jane@yahoo.com";
+   User user3 = new User(username3, password3, email3);
+   users.add(user3);
+   assertEquals(false, SILab2.function(user3, users));
+   ```
+
+- Со четвртиот и петтиот тест се изминуваат гранките 19-20 и 26-27 сооедветно.
+
+   тест4:
+   ```
+    String username4 = "Ani";
+    String password4 = "987";
+    String email4 = "ani@gmail.com";
+    User user4 = new User(username4, password4, email4);
+    users.add(user4);
+    assertEquals(false, SILab2.function(user4, users));
+   ```
+   тест5:
+   ```
+    String username5 = "David";
+    String password5 = "532$bvcprw";
+    String email5 = "adavid@gmail.com";
+    User user5 = new User(username5, password5, email5);
+    assertEquals(true, SILab2.function(user5, users));
+   ```
 
 ### Тест случаи според Multiple Conditionion критериумот
 ![1](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/39a2cd0f-d7ff-435a-b1a2-3f27518b0ef8)
