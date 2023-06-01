@@ -5,7 +5,8 @@
 
 
 ### Control Flow Graph
-![cfg](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/e5faab41-4150-49e2-83d1-25919540e25c)
+![cfg](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/e34a3260-9ba4-4eb6-9c45-1e2c51d88007)
+
 
 
 ### Цикломатска комплексност
@@ -13,8 +14,7 @@
 
 
 ### Тест случаи според Every Branch критериумот
-![2](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/106d2022-0f16-4521-9257-0c7a6792354f)
-
+![everybranch](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/d4722bdf-bd91-492f-b72e-7bf1a75cefe9)
 
 
 За попрегледен приказ на тест случаите според Every Branch критериумот користиме матрица во која со ѕвезда се означени сите гранки кои се изминати за соодветнот тест, дедека пак со црвена боја се осначени гранките кои не се изминати за соодветниот тест.
@@ -71,8 +71,9 @@
     assertEquals(true, SILab2.function(user5, users));
    ```
 
-### Тест случаи според Multiple Conditionion критериумот
-![1](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/39a2cd0f-d7ff-435a-b1a2-3f27518b0ef8)
+### Тест случаи според Multiple Condition критериумот
+![multiplecondition](https://github.com/AndrijanaStajkovska/SI_2023_lab2_124014/assets/18198851/31cd673f-f527-49e9-b2d9-07370f12c64d)
+
 
 1. user==null враќа TRUE, што значи дека другите случаи нема потреба да се проверуваат, односно условот е исполнет. (1-2)
    ```
